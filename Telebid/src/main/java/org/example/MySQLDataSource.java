@@ -8,7 +8,7 @@ public class MySQLDataSource {
     static {
         ds.setURL("jdbc:mysql://localhost:3306/telebid");
         ds.setUser("root");
-        ds.setPassword("rycbar123");
+        ds.setPassword("password");
     }
 
     public static DataSource getDataSource() {
