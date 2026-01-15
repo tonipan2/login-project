@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+    }
+    .container {
+        width: 360px;
+        margin: 60px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 6px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+        width: 95%;
+        padding: 8px;
+        margin-top: 10px;
+    }
+    button {
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #0056b3;
+    }
+    .success {
+        color: green;
+        margin-top: 10px;
+    }
+    .error {
+        color: red;
+        margin-top: 10px;
+    }
+    .logout {
+        margin-top: 15px;
+        background: #dc3545;
+    }
+    .logout:hover {
+        background: #b02a37;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Update Profile</h2>
+
+  <form method="post" action="/profile">
+    <input type="text" name="firstName" placeholder="New first name (optional)" />
+    <input type="text" name="lastName" placeholder="New last name (optional)" />
+    <input type="email" name="email" placeholder="New email (optional)" />
+    <input type="password" name="password" placeholder="New password (optional)" />
+    <button type="submit">Update Profile</button>
+  </form>
+
+  <form method="post" action="/login.html">
+    <button class="logout" type="submit">Logout</button>
+  </form>
+
+  <div class="success" id="success"></div>
+  <div class="error" id="error"></div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.has("success")) {
+      document.getElementById("success").innerText =
+          "Profile updated successfully";
+  }
+
+  if (params.has("error")) {
+      document.getElementById("error").innerText =
+          decodeURIComponent(params.get("error"));
+  }
+</script>
+
+</body>
+</html>

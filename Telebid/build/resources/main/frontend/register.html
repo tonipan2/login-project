@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+        .container {
+            width: 320px;
+            margin: 60px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 95%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1e7e34;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .success {
+            color: green;
+            margin-top: 10px;
+        }
+        .captcha-container {
+            margin-top: 10px;
+        }
+        .captcha-container span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Create Account</h2>
+
+    <form method="post" action="/register" id="registerForm">
+        <input type="text" name="firstName" placeholder="First name" required />
+        <input type="text" name="lastName" placeholder="Last name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password" required />
+
+        <div class="captcha-container">
+            <label>Prove you're not a robot: <span id="captchaQuestion"></span></label>
+            <input type="text" id="captchaAnswer" placeholder="Enter result" required />
+        </div>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p>
+        Already have an account?
+        <a href="/login.html">Login</a>
+    </p>
+
+    <div class="error" id="error"></div>
+    <div class="success" id="success"></div>
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.has("error")) {
+        document.getElementById("error").innerText =
+            decodeURIComponent(params.get("error"));
+    }
+
+    if (params.has("success")) {
+        document.getElementById("success").innerText =
+            "You have successfully registered!";
+    }
+
+    let num1 = Math.floor(Math.random()*10) + 1;
+    let num2 = Math.floor(Math.random()*10) + 1;
+    const result = num1 + num2;
+
+    document.getElementById("captchaQuestion").innerText = `${num1} + ${num2} = ?`;
+
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+        const userAnswer = parseInt(document.getElementById("captchaAnswer").value);
+        if (userAnswer !== result) {
+            e.preventDefault();
+            document.getElementById("error").innerText = "Wrong answer. Please try again.";
+        }
+    });
+</script>
+
+</body>
+</html>

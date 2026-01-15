@@ -1,0 +1,12 @@
+2026-01-14 15:24:12.444691+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+SELECT 1 FROM users WHERE email = ? [42104-224]
+2026-01-14 15:50:20.233830+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+SELECT 1 FROM users WHERE email = ? [42104-224]
+2026-01-14 15:52:25.701175+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+SELECT 1 FROM users WHERE email = ? [42104-224]
+2026-01-14 15:52:33.624825+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+SELECT 1 FROM users WHERE email = ? [42104-224]

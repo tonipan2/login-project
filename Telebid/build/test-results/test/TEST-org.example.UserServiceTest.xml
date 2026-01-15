@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.UserServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-01-15T11:38:57" hostname="Antons-Laptop.local" time="1.662">
+  <properties/>
+  <testcase name="findByEmailTest()" classname="org.example.UserServiceTest" time="0.76"/>
+  <testcase name="emailExceptionTest()" classname="org.example.UserServiceTest" time="0.006"/>
+  <testcase name="updateProfileTest()" classname="org.example.UserServiceTest" time="0.223"/>
+  <testcase name="registerUserTest()" classname="org.example.UserServiceTest" time="0.114"/>
+  <testcase name="hashPasswordTest()" classname="org.example.UserServiceTest" time="0.222"/>
+  <testcase name="authenticateTest()" classname="org.example.UserServiceTest" time="0.331"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
